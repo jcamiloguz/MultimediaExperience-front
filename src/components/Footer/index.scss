@@ -1,0 +1,28 @@
+footer {
+  position: relative;
+  width: 100%;
+  height: auto;
+  padding: 50px;
+  background: #f0f0f0;
+}
+.footer_content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+.footer__developers {
+  padding: 20px;
+  h1 {
+    position: relative;
+    color: #d70000;
+    text-transform: uppercase;
+    font-size: 3rem;
+    font-weight: 200;
+  }
+  .developers {
+    list-style: none;
+    text-transform: uppercase;
+  }
+}
