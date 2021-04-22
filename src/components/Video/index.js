@@ -135,10 +135,26 @@ const Video = () => {
         )
         break
       case 5:
-        return <OpinionForm />
+        return (
+          <div className="scene">
+            <img src={img5} className="bg-scene" alt="" />
+            <OpinionForm
+              videoState={videoState}
+              setVideoState={setVideoState}
+            />
+          </div>
+        )
         break
       case 6:
-        return <ListOpinion />
+        return (
+          <div className="scene">
+            <img src={img5} className="bg-scene" alt="" />
+            <OpinionForm
+              videoState={videoState}
+              setVideoState={setVideoState}
+            />
+          </div>
+        )
         break
       case 'incorrect1':
         return (
@@ -159,7 +175,7 @@ const Video = () => {
             <img src={img4} className="bg-scene" alt="" />
             <button
               className=" option left"
-              onClick={() => setVideoState({ ...videoState, moment: 1 })}
+              onClick={() => setVideoState({ ...videoState, moment: 2 })}
             >
               Back
             </button>
@@ -172,7 +188,7 @@ const Video = () => {
             <img src={img6} className="bg-scene" alt="" />
             <button
               className=" option left"
-              onClick={() => setVideoState({ ...videoState, moment: 1 })}
+              onClick={() => setVideoState({ ...videoState, moment: 3 })}
             >
               Back
             </button>
@@ -185,7 +201,7 @@ const Video = () => {
             <img src={img8} className="bg-scene" alt="" />
             <button
               className=" option left"
-              onClick={() => setVideoState({ ...videoState, moment: 1 })}
+              onClick={() => setVideoState({ ...videoState, moment: 4 })}
             >
               Back
             </button>
@@ -201,6 +217,32 @@ const Video = () => {
   return (
     <div className="video-container">
       <div className="background">{contentSwitch(videoState.moment)}</div>
+      <div className="slider">
+        <button
+          className=" slide "
+          onClick={() => setVideoState({ ...videoState, moment: 1 })}
+        >
+          Primera Eleccion
+        </button>
+        <button
+          className=" slide"
+          onClick={() => setVideoState({ ...videoState, moment: 2 })}
+        >
+          Segunda Eleccion
+        </button>
+        <button
+          className=" slide"
+          onClick={() => setVideoState({ ...videoState, moment: 3 })}
+        >
+          Tercera Eleccion
+        </button>
+        <button
+          className=" slide"
+          onClick={() => setVideoState({ ...videoState, moment: 4 })}
+        >
+          Cuarta Eleccion
+        </button>
+      </div>
     </div>
   )
 }

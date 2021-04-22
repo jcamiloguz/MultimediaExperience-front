@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-export default function OpinionForm(videoState, setVideoState) {
+export default function OpinionForm({ videoState, setVideoState }) {
   const [opinion, setOpinion] = useState({
     content_opinion: '',
     score: 0,

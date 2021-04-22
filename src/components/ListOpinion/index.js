@@ -7,7 +7,7 @@ export default function ListOpinion() {
   }, [])
   const getInfo = async () => {
     try {
-      const response = await fetch(`ttp://localhost:9000/opinion`, {
+      const response = await fetch(`http://localhost:9000/opinion`, {
         method: 'GET',
         mode: 'cors',
         headers: {
@@ -17,6 +17,7 @@ export default function ListOpinion() {
       })
       const data = await response.json()
       setOpinions(data)
+      console.log(data)
     } catch (err) {
       throw err
     }
@@ -24,7 +25,7 @@ export default function ListOpinion() {
   return (
     <div className="nes-container">
       {opinions.map((opinion) => (
-        <div>
+        <div key={opinion.id}>
           {' '}
           <h2>{opinion.content_opinion}</h2>
           <p>{opinion.score}</p>
