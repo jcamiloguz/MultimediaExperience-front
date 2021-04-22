@@ -1,0 +1,44 @@
+.bg-scene {
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+}
+.option {
+  position: absolute;
+  top: 700px;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+.left {
+  transform: translateX(-300px);
+}
+.right {
+  transform: translateX(300px);
+}
+.question {
+  position: absolute;
+  top: 300px;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+  background-color: #fefefe;
+  width: 700px;
+}
+.list_opinion {
+  background-color: #ccc;
+  padding: 20px;
+  width: 600px;
+  margin: 30px auto;
+}
+.opinion {
+  background-color: #fefefe;
+  padding: 10px;
+  margin: 10px;
+}
