@@ -1,32 +1,32 @@
-import React from "react";
+import React from 'react'
 
-import "./index.scss";
+import './index.scss'
 
 class CommentBox extends React.Component {
   constructor() {
-    super();
+    super()
 
     this.state = {
       showComments: false,
       comments: [
         {
           id: 1,
-          author: "Andres",
+          author: 'Andres',
           body:
-            "La experiencia me parfce muy creativa y deseo aprender sobre diseño",
+            'La experiencia me parfce muy creativa y deseo aprender sobre diseño',
         },
       ],
-    };
+    }
   }
 
   render() {
-    const comments = this._getComments();
-    let commentNodes;
-    let buttonText = "Mostrar comentarios";
+    const comments = this._getComments()
+    let commentNodes
+    let buttonText = 'Mostrar comentarios'
 
     if (this.state.showComments) {
-      buttonText = "Ocultar Comentarios";
-      commentNodes = <div className="comment-list">{comments}</div>;
+      buttonText = 'Ocultar Comentarios'
+      commentNodes = <div className="comment-list">{comments}</div>
     }
 
     return (
@@ -48,7 +48,7 @@ class CommentBox extends React.Component {
           {commentNodes}
         </div>
       </div>
-    );
+    )
   } // end render
 
   _addComment(author, body) {
@@ -56,31 +56,31 @@ class CommentBox extends React.Component {
       id: this.state.comments.length + 1,
       author,
       body,
-    };
-    this.setState({ comments: this.state.comments.concat([comment]) }); // *new array references help React stay fast, so concat works better than push here.
+    }
+    this.setState({ comments: this.state.comments.concat([comment]) }) // *new array references help React stay fast, so concat works better than push here.
   }
 
   _handleClick() {
     this.setState({
       showComments: !this.state.showComments,
-    });
+    })
   }
 
   _getComments() {
     return this.state.comments.map((comment) => {
       return (
         <Comment author={comment.author} body={comment.body} key={comment.id} />
-      );
-    });
+      )
+    })
   }
 
   _getCommentsTitle(commentCount) {
     if (commentCount === 0) {
-      return "No comments yet";
+      return 'No comments yet'
     } else if (commentCount === 1) {
-      return "1 comentario";
+      return '1 comentario'
     } else {
-      return `${commentCount} comentarios`;
+      return `${commentCount} comentarios`
     }
   }
 } // end CommentBox component
@@ -105,21 +105,20 @@ class CommentForm extends React.Component {
             ref={(textarea) => (this._body = textarea)}
           ></textarea>
           <div className="comment-form-actions">
-          <button type="submit" className="nes-btn is-success">
-            Comentar
-          </button>
+            <button type="submit" className="nes-btn is-success">
+              Comentar
+            </button>
+          </div>
         </div>
-        </div>
-        
       </form>
-    );
+    )
   } // end render
 
   _handleSubmit(event) {
-    event.preventDefault(); // prevents page from reloading on submit
-    let author = this._author;
-    let body = this._body;
-    this.props.addComment(author.value, body.value);
+    event.preventDefault() // prevents page from reloading on submit
+    let author = this._author
+    let body = this._body
+    this.props.addComment(author.value, body.value)
   }
 } // end CommentForm component
 
@@ -140,13 +139,12 @@ class Comment extends React.Component {
             </a>
           </div>
         </div>
-        
       </>
-    );
+    )
   }
   _deleteComment() {
-    this.props.body = 0;
+    this.props.body = 0
   }
 }
 
-export default CommentBox;
+export default CommentBox
