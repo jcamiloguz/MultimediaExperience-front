@@ -1,0 +1,26 @@
+.dashboard {
+  padding: 5% 10%;
+}
+.dashboard__admin {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.dashboard__info {
+  margin: 2%;
+}
+.dashboard__participants {
+  text-align: center;
+  margin-left: 420px !important;
+  padding: 20px;
+  box-shadow: 3px 4px 6px 0px;
+}
+.dashboard__charts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 10px 0;
+}
+.dashboard__users{
+  margin: 15px 0;
+}

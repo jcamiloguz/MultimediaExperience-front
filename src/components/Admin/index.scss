@@ -1,0 +1,32 @@
+.form_container {
+  display: block;
+  max-width: 600px;
+  text-align: center;
+  margin-top:150px !important; 
+  margin: auto;
+  border-radius: 5px;
+  padding-bottom: 10px;
+
+  .form {
+    display: block;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .input {
+    margin: 15px;
+  }
+  .btn {
+    margin: 15px;
+  }
+  .circle {
+    border-radius: 100%;
+    border: 5px solid rgb(0, 0, 0);
+    width: 100px;
+    height: 100px;
+    padding: 13px;
+    margin: auto;
+  }
+  .form-U {
+    color: #e76e55;
+  }
+}

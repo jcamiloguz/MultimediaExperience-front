@@ -1,0 +1,23 @@
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+
+  .footer_content {
+    background-color: #8c2022;
+    color: black;
+    text-align: center;
+    border-top: 3px solid black;
+    color: white;
+    padding: 10px;
+    h3{
+        letter-spacing: 10px;
+    }
+  }
+  .footer_name {
+    margin-bottom: 0;
+    font-size: 9px;
+    letter-spacing: 2px;
+  }
+}

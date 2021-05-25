@@ -3,7 +3,7 @@ import './index.scss'
 const Question = ({ content }) => {
   return (
     <div>
-      <div className="nes-container question">
+      <div className="nes-container is-rounded question">
         <p>{content}</p>
       </div>
     </div>

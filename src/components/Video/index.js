@@ -219,25 +219,25 @@ const Video = () => {
       <div className="background">{contentSwitch(videoState.moment)}</div>
       <div className="slider">
         <button
-          className=" slide "
+          className="nes-btn  slide "
           onClick={() => setVideoState({ ...videoState, moment: 1 })}
         >
           Primera Eleccion
         </button>
         <button
-          className=" slide"
+          className="nes-btn  slide"
           onClick={() => setVideoState({ ...videoState, moment: 2 })}
         >
           Segunda Eleccion
         </button>
         <button
-          className=" slide"
+          className="nes-btn  slide"
           onClick={() => setVideoState({ ...videoState, moment: 3 })}
         >
           Tercera Eleccion
         </button>
         <button
-          className=" slide"
+          className="nes-btn  slide"
           onClick={() => setVideoState({ ...videoState, moment: 4 })}
         >
           Cuarta Eleccion
