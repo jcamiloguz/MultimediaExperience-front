@@ -1,41 +1,41 @@
-import React, { useState } from "react";
-import "./index.scss";
+import React, { useState } from 'react'
+import './index.scss'
 
 const UserForm = ({ videoState, setVideoState }) => {
   const [state, setState] = useState({
-    user_name: "",
-    user_last_name: "",
-    email: "",
-    phone: "",
-    created_at: "2321",
-    born_date: "21321",
+    user_name: '',
+    user_last_name: '',
+    email: '',
+    phone: '',
+    created_at: '2321',
+    born_date: '2000-09-06',
     id_school: 1,
-  });
+  })
   const userHandler = (e) => {
-    setState({ ...state, [e.target.name]: e.target.value });
-  };
+    setState({ ...state, [e.target.name]: e.target.value })
+  }
   const clickHandler = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
     try {
-      const rawResponse = await fetch("http://localhost:9000/user", {
-        method: "POST",
+      const rawResponse = await fetch('http://localhost:9000/user', {
+        method: 'POST',
         headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(state),
-      });
-      const content = await rawResponse.json();
-      console.log(content);
+      })
+      const content = await rawResponse.json()
+      console.log(content)
       setVideoState({
         ...videoState,
         idUser: content.insertId,
         moment: videoState.moment + 1,
-      });
+      })
     } catch (err) {
-      throw err;
+      throw err
     }
-  };
+  }
   return (
     <>
       <div className="form-container nes-container">
@@ -80,6 +80,15 @@ const UserForm = ({ videoState, setVideoState }) => {
             className="nes-input"
           />
           <br />
+          <label htmlFor="">Fecha de nacimiento: </label>
+          <input
+            onChange={userHandler}
+            value={state.born_date}
+            type="date"
+            name="born_date"
+            className="nes-input"
+          />
+          <br />
           <br />
           {/* <div>
             <i className="nes-icon is-large star"></i>
@@ -89,13 +98,13 @@ const UserForm = ({ videoState, setVideoState }) => {
             <br />
           </div> */}
           <button className=" nes-btn is-error" onClick={clickHandler}>
-            {" "}
+            {' '}
             Enviar y continuar
           </button>
         </form>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default UserForm;
+export default UserForm
