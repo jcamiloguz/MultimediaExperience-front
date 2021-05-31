@@ -1,26 +1,40 @@
 .dashboard {
-  padding: 5% 10%;
+  width: 100%;
+  max-width: 1000px;
+  margin: 20px auto !important;
+  align-items: center;
 }
 .dashboard__admin {
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
   width: 100%;
+  justify-content: center;
 }
 .dashboard__info {
   margin: 2%;
 }
 .dashboard__participants {
   text-align: center;
-  margin-left: 420px !important;
   padding: 20px;
   box-shadow: 3px 4px 6px 0px;
 }
 .dashboard__charts {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 10px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 10px 0;
 }
-.dashboard__users{
+.dashboard__users {
   margin: 15px 0;
+}
+.bar {
+  width: 100%;
+}
+.accordion__item {
+  transition: height ease-in 400ms;
+}
+@media only screen and (min-width: 1000px) {
+  .bar {
+    width: 45%;
+  }
 }

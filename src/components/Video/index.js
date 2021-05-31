@@ -1,20 +1,31 @@
 import React, { useState } from 'react'
 import './index.scss'
-
-import img1 from '../../assets/ac1.png'
-import img2 from '../../assets/ac2.png'
-import img3 from '../../assets/ac3.png'
-import img4 from '../../assets/ac4.png'
-import img5 from '../../assets/ac5.png'
-import img6 from '../../assets/ac6.png'
-import img7 from '../../assets/ac7.png'
-import img8 from '../../assets/ac8.png'
-
 import Decision from '../Decision/index'
 import Question from '../Question/index'
 import UserForm from '../UserForm'
 import OpinionForm from '../OpinionForm'
 import ListOpinion from '../ListOpinion'
+
+const INICIO =
+  'https://multimedia-experience.s3.us-east-2.amazonaws.com/drive-download-20210528T042417Z-001/INICIO.mp4'
+const ESC2 =
+  'https://multimedia-experience.s3.us-east-2.amazonaws.com/drive-download-20210528T042417Z-001/Escena+Dos.mp4'
+const CORR2 =
+  'https://multimedia-experience.s3.us-east-2.amazonaws.com/drive-download-20210528T042417Z-001/CORRECTO.mp4'
+const INCOR2 =
+  'https://multimedia-experience.s3.us-east-2.amazonaws.com/drive-download-20210528T042417Z-001/INCORRECTO.mp4'
+const ESC3 =
+  'https://multimedia-experience.s3.us-east-2.amazonaws.com/drive-download-20210528T042417Z-001/Escena+Tres+(Loop).mp4'
+const CORR3 =
+  'https://multimedia-experience.s3.us-east-2.amazonaws.com/drive-download-20210528T042417Z-001/Escena+Tres+(Correcto).mp4'
+const INCOR3 =
+  'https://multimedia-experience.s3.us-east-2.amazonaws.com/drive-download-20210528T042417Z-001/Escena+Tres+(Incorrecto).mp4'
+const ESC4 =
+  'https://multimedia-experience.s3.us-east-2.amazonaws.com/drive-download-20210528T042417Z-001/Escena+Dos.mp4'
+const CORR4 =
+  'https://multimedia-experience.s3.us-east-2.amazonaws.com/drive-download-20210528T042417Z-001/Escena+Cuatro+(Correcto).mp4'
+const INCOR4 =
+  'https://multimedia-experience.s3.us-east-2.amazonaws.com/drive-download-20210528T042417Z-001/Escena+Cuatro+(Incorrecto).mp4'
 
 const Video = () => {
   const [videoState, setVideoState] = useState({
@@ -31,7 +42,7 @@ const Video = () => {
       case 1:
         return (
           <div className="scene">
-            <img src={img1} className="bg-scene" alt="" />
+            <video src={ESC2} className="bg-scene" alt="" />
             <Question content="Si debes redactar un documento formal que fuente usarias?" />
             <Decision
               question={1}
@@ -56,7 +67,7 @@ const Video = () => {
       case 2:
         return (
           <div className="scene">
-            <img src={img3} className="bg-scene" alt="" />
+            <video src={ESC3} className="bg-scene" alt="" />
             <Question content="Cual de las dos lineas imprime un  -HOLA MUNDO-?" />
             <Decision
               classname="option"
@@ -83,7 +94,7 @@ const Video = () => {
       case 3:
         return (
           <div className="scene">
-            <img src={img5} className="bg-scene" alt="" />
+            <video src={ESC4} className="bg-scene" alt="" />
             <Question content="Que debes hacer para encender el led y acabar con arduibot?" />
             <Decision
               classname="option"
@@ -110,7 +121,7 @@ const Video = () => {
       case 4:
         return (
           <div className="scene">
-            <img src={img7} className="bg-scene" alt="" />
+            <video src={video7} className="bg-scene" alt="" />
             <Question content="A cuantos metro puedes usar tu bluetooth para pedir una bomba que destruya al super pez?" />
             <Decision
               classname="option"
@@ -137,7 +148,7 @@ const Video = () => {
       case 5:
         return (
           <div className="scene">
-            <img src={img5} className="bg-scene" alt="" />
+            <video src={video5} className="bg-scene" alt="" />
             <OpinionForm
               videoState={videoState}
               setVideoState={setVideoState}
@@ -148,7 +159,7 @@ const Video = () => {
       case 6:
         return (
           <div className="scene">
-            <img src={img5} className="bg-scene" alt="" />
+            <video src={video5} className="bg-scene" alt="" />
             <ListOpinion
               videoState={videoState}
               setVideoState={setVideoState}
@@ -159,7 +170,7 @@ const Video = () => {
       case 'incorrect1':
         return (
           <div className="scene">
-            <img src={img2} className="bg-scene" alt="" />
+            <video src={video2} className="bg-scene" alt="" />
             <button
               className=" option left"
               onClick={() => setVideoState({ ...videoState, moment: 1 })}
@@ -172,7 +183,7 @@ const Video = () => {
       case 'incorrect2':
         return (
           <div className="scene">
-            <img src={img4} className="bg-scene" alt="" />
+            <video src={video4} className="bg-scene" alt="" />
             <button
               className=" option left"
               onClick={() => setVideoState({ ...videoState, moment: 2 })}
@@ -185,7 +196,7 @@ const Video = () => {
       case 'incorrect3':
         return (
           <div className="scene">
-            <img src={img6} className="bg-scene" alt="" />
+            <vide src={img6} className="bg-scene" alt="" />
             <button
               className=" option left"
               onClick={() => setVideoState({ ...videoState, moment: 3 })}
@@ -198,7 +209,7 @@ const Video = () => {
       case 'incorrect4':
         return (
           <div className="scene">
-            <img src={img8} className="bg-scene" alt="" />
+            <video src={img8} className="bg-scene" alt="" />
             <button
               className=" option left"
               onClick={() => setVideoState({ ...videoState, moment: 4 })}

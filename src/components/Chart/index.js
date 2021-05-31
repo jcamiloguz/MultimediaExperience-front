@@ -1,8 +1,15 @@
-import React from "react";
-import "./index.scss";
-import { Bar } from "react-chartjs-2";
+import React from 'react'
+import './index.scss'
+import { Bar } from 'react-chartjs-2'
 
-const Barchart = ({ description, option1, option2, activity }) => {
+const Barchart = ({
+  description,
+  option1,
+  option2,
+  activity,
+  data1,
+  data2,
+}) => {
   return (
     <div className="bar nes-container is-rounded">
       <h2 className="nes-text is-error">{activity}</h2>
@@ -15,11 +22,11 @@ const Barchart = ({ description, option1, option2, activity }) => {
             labels: [`${option1}`, `${option2}`],
             datasets: [
               {
-                data: [2, 5],
-                label: "Respuestas",
-                backgroundColor: ["rgb(140,32,34)", "rgb(146,204,65)"],
-                borderColor:'black',
-                borderWidth: 3
+                data: [data1, data2],
+                label: 'Respuestas',
+                backgroundColor: ['rgb(140,32,34)', 'rgb(146,204,65)'],
+                borderColor: 'black',
+                borderWidth: 3,
               },
             ],
           }}
@@ -29,7 +36,7 @@ const Barchart = ({ description, option1, option2, activity }) => {
         />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Barchart;
+export default Barchart
