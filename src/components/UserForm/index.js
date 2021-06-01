@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './index.scss'
 
-const UserForm = ({ videoState, setVideoState }) => {
+const UserForm = ({ videoState, setVideoState, setMoment }) => {
   const [state, setState] = useState({
     user_name: '',
     user_last_name: '',
@@ -30,8 +30,8 @@ const UserForm = ({ videoState, setVideoState }) => {
       setVideoState({
         ...videoState,
         idUser: content.insertId,
-        moment: videoState.moment + 1,
       })
+      setMoment('ESC2')
     } catch (err) {
       throw err
     }
@@ -90,13 +90,6 @@ const UserForm = ({ videoState, setVideoState }) => {
           />
           <br />
           <br />
-          {/* <div>
-            <i className="nes-icon is-large star"></i>
-            <i className="nes-icon is-large star"></i>
-            <i className="nes-icon is-large star is-half"></i>
-            <i className="nes-icon is-large star is-empty"></i>
-            <br />
-          </div> */}
           <button className=" nes-btn is-error" onClick={clickHandler}>
             {' '}
             Enviar y continuar

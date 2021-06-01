@@ -4,7 +4,7 @@ const Decision = ({
   title,
   option,
   question,
-  correct,
+  next,
   videoState,
   setVideoState,
   second = false,
@@ -31,11 +31,8 @@ const Decision = ({
     } catch (err) {
       throw err
     }
-    if (correct) {
-      setVideoState({ ...videoState, moment: videoState.moment + 1 })
-    } else {
-      setVideoState({ ...videoState, moment: `incorrect${videoState.moment}` })
-    }
+
+    setVideoState({ ...videoState, moment: next })
   }
 
   return (

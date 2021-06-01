@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './index.scss'
 import Decision from '../Decision/index'
 import Question from '../Question/index'
 import UserForm from '../UserForm'
 import OpinionForm from '../OpinionForm'
 import ListOpinion from '../ListOpinion'
+import Slider from '../Slider'
 
 const INICIO =
   'https://multimedia-experience.s3.us-east-2.amazonaws.com/drive-download-20210528T042417Z-001/INICIO.mp4'
@@ -26,6 +27,8 @@ const CORR4 =
   'https://multimedia-experience.s3.us-east-2.amazonaws.com/drive-download-20210528T042417Z-001/Escena+Cuatro+(Correcto).mp4'
 const INCOR4 =
   'https://multimedia-experience.s3.us-east-2.amazonaws.com/drive-download-20210528T042417Z-001/Escena+Cuatro+(Incorrecto).mp4'
+const FINAL =
+  'https://multimedia-experience.s3.us-east-2.amazonaws.com/drive-download-20210528T042417Z-001/EscenaF(Loop).mp4'
 // const contentSwitch = (moment) => {
 //   switch (moment) {
 //     case 0:
@@ -213,12 +216,128 @@ const INCOR4 =
 const Video = () => {
   const [videoState, setVideoState] = useState({
     idUser: null,
-    moment: 0,
     muted: true,
     src: INICIO,
+    slider: false,
+    question: false,
+    questionTitle: '',
+    questionId: 0,
+    opinion1: 0,
+    next1: '',
+    opinion1Title: '',
+    opinion2: 0,
+    opinion2Title: '',
+    next2: '',
+    back: '',
   })
+  const [moment, setMoment] = useState('INICIO')
+  const [currentTime, setCurrentTime] = useState(0)
+  const states = {
+    INICIO: () => {
+      console.log('inicio')
+    },
+    FORM: () => {
+      console.log('FORM')
+      setCurrentTime(0)
+      setVideoState({ ...videoState, src: '' })
+    },
+    ESC2: () => {
+      console.log('ESC2')
+      setVideoState({ ...videoState, src: ESC2 })
+    },
+    QUE2: () => {
+      setVideoState({
+        ...videoState,
+        question: true,
+        questionTitle:
+          'Si debes redactar un documento formal que fuente usarias?',
+        questionId: 1,
+        opinion1: 1,
+        next1: 'INC2',
+        opinion1Title: 'Comic Sans',
+        opinion2: 2,
+        opinion2Title: 'Roboto',
+        next2: 'COR2',
+      })
+    },
+    INC2: () => {
+      setVideoState({ ...videoState, src: INCOR2 })
+    },
+    BACK2: () => {},
+    COR2: () => {
+      setVideoState({ ...videoState, src: CORR2 })
+    },
+    ESC3: () => {
+      setVideoState({ ...videoState, src: ESC3 })
+    },
+    QUE3: () => {
+      setVideoState({
+        ...videoState,
+        question: true,
+        questionTitle: 'Cual de las dos lineas imprime un  -HOLA MUNDO-?',
+        questionId: 2,
+        opinion1: 3,
+        next1: 'COR3',
+        opinion1Title: 'print("HOLA MUNDO")',
+        opinion2: 4,
+        opinion2Title: 'math.random("HOLA MUNDO")',
+        next2: 'INC3',
+      })
+    },
+    INC3: () => {
+      setVideoState({ ...videoState, src: INCOR3 })
+    },
+    BACK3: () => {},
+    COR3: () => {
+      setVideoState({ ...videoState, src: CORR3 })
+    },
+    ESC4: () => {
+      setVideoState({ ...videoState, src: ESC4 })
+    },
+    QUE4: () => {
+      setVideoState({
+        ...videoState,
+        question: true,
+        questionTitle:
+          'A cuantos metro puedes usar tu bluetooth para pedir una bomba que destruya al super pez?',
+        questionId: 3,
+        opinion1: 5,
+        next1: 'INC3',
+        opinion1Title: 'Maximo 5KM',
+        opinion2: 6,
+        opinion2Title: 'Maximo 5M',
+        next2: 'COR3',
+      })
+    },
+    INC4: () => {
+      setVideoState({ ...videoState, src: INCOR4 })
+    },
+    COR4: () => {
+      setVideoState({ ...videoState, src: CORR4 })
+    },
+    BACK4: () => {},
+    FINAL: () => {
+      setVideoState({ ...videoState, src: FINAL })
+    },
+    LAST_FORM: () => {
+      setVideoState({ ...videoState, src: '' })
+    },
+    OPINIONS: () => {},
+  }
+  useEffect(() => {
+    states[moment]()
+  }, [moment])
   const mutedFun = () => {
     setVideoState({ ...videoState, muted: !videoState.muted })
+  }
+  const getCurrentTime = (element) => {
+    setCurrentTime(element.target.currentTime)
+    if (currentTime > 38 && moment === 'INICIO') {
+      element.target.currentTime = 26
+    }
+    if (currentTime > 34 && moment === 'ESC2') {
+      setMoment('QUE2')
+    }
   }
   return (
     <div className="video-container">
@@ -228,35 +347,71 @@ const Video = () => {
           muted={videoState.muted}
           className="bg-scene"
           src={videoState.src}
+          onTimeUpdate={getCurrentTime}
         ></video>
       </div>
+      <h1>{currentTime}</h1>
       <button onClick={mutedFun}>Mute</button>
-      <div className="slider">
+      {moment === 'INICIO' ? (
         <button
-          className="nes-btn  slide "
-          onClick={() => setVideoState({ ...videoState, moment: 1 })}
+          onClick={() => {
+            setMoment('FORM')
+          }}
         >
-          Primera Eleccion
+          START
         </button>
-        <button
-          className="nes-btn  slide"
-          onClick={() => setVideoState({ ...videoState, moment: 2 })}
-        >
-          Segunda Eleccion
-        </button>
-        <button
-          className="nes-btn  slide"
-          onClick={() => setVideoState({ ...videoState, moment: 3 })}
-        >
-          Tercera Eleccion
-        </button>
-        <button
-          className="nes-btn  slide"
-          onClick={() => setVideoState({ ...videoState, moment: 4 })}
-        >
-          Cuarta Eleccion
-        </button>
-      </div>
+      ) : (
+        <></>
+      )}
+      {videoState.slider ? (
+        <Slider videoState={videoState} setVideoState={setVideoState}></Slider>
+      ) : (
+        <></>
+      )}
+      {videoState.question ? (
+        <>
+          <Question content={videoState.questionTitle} />
+          <Decision
+            classname="option"
+            question={videoState.questionId}
+            option={videoState.opinion1}
+            title={videoState.opinion1Title}
+            videoState={videoState}
+            setVideoState={setVideoState}
+            //  next={}
+          />
+          <Decision
+            classname="option"
+            question={videoState.questionId}
+            option={videoState.opinion1}
+            title={videoState.opinion1Title}
+            videoState={videoState}
+            setVideoState={setVideoState}
+            second={true}
+          />
+        </>
+      ) : (
+        <></>
+      )}
+      {moment === 'FORM' ? (
+        <UserForm
+          videoState={videoState}
+          setMoment={setMoment}
+          setVideoState={setVideoState}
+        />
+      ) : (
+        <></>
+      )}
+      {moment === 'LAST_FORM' ? (
+        <OpinionForm videoState={videoState} setVideoState={setVideoState} />
+      ) : (
+        <></>
+      )}
+      {moment === 'OPINION' ? (
+        <ListOpinion videoState={videoState} setVideoState={setVideoState} />
+      ) : (
+        <></>
+      )}
     </div>
   )
 }
