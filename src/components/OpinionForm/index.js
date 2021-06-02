@@ -61,10 +61,20 @@ export default function OpinionForm({ videoState, setMoment }) {
         </button>
         <h2>Comparte la experiencia!!</h2>
         <div className="social-media">
-          <FacebookShareButton className="nes-btn" url={'http://google.com'}>
+          <FacebookShareButton
+            className="nes-btn"
+            url={
+              'https://multimedia-experience-front-93ub0aoyv-jcamiloguz.vercel.app/'
+            }
+          >
             <i class="nes-icon facebook is-large"></i>
           </FacebookShareButton>
-          <TwitterShareButton className="nes-btn" url={'http://google.com'}>
+          <TwitterShareButton
+            className="nes-btn"
+            url={
+              'https://multimedia-experience-front-93ub0aoyv-jcamiloguz.vercel.app/'
+            }
+          >
             <i class="nes-icon twitter is-large"></i>
           </TwitterShareButton>
         </div>
