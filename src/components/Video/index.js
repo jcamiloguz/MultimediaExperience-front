@@ -267,7 +267,7 @@ const Video = () => {
     if (currentTime > 42 && moment === 'ESC2') {
       setMoment('QUE2')
     }
-    if (currentTime > 6 && moment === 'INC2') {
+    if (currentTime > 5 && moment === 'INC2') {
       setMoment('BACK2')
     }
     if (currentTime > 5 && moment === 'COR2') {
@@ -318,45 +318,88 @@ const Video = () => {
         ></video>
       </div>
       {/* <h1>{currentTime}</h1> */}
-      <button onClick={mutedFun}>Mute</button>
-      {currentTime > 22 && moment === 'INICIO' ? (
-        <button
-          onClick={() => {
-            setMoment('FORM')
-          }}
-        >
-          START
+
+      <div className="menu-buttons">
+        <div className="menu-center">
+          {videoState.slider ? <Slider setMoment={setMoment}></Slider> : <></>}
+          {videoState.question ? (
+            <>
+              <Decision
+                question={videoState.questionId}
+                option={videoState.opinion1}
+                title={videoState.opinion1Title}
+                videoState={videoState}
+                setMoment={setMoment}
+                next={videoState.next1}
+              />
+              <Decision
+                question={videoState.questionId}
+                option={videoState.opinion2}
+                title={videoState.opinion2Title}
+                videoState={videoState}
+                setMoment={setMoment}
+                next={videoState.next2}
+                second={true}
+              />
+            </>
+          ) : (
+            <></>
+          )}
+          {currentTime > 22 && moment === 'INICIO' ? (
+            <button
+              onClick={() => {
+                setMoment('FORM')
+              }}
+            >
+              START
+            </button>
+          ) : (
+            <></>
+          )}
+          {moment === 'BACK2' ? (
+            <button
+              className=" option back-button"
+              onClick={() => setMoment('ESC2')}
+            >
+              Volver
+            </button>
+          ) : (
+            <></>
+          )}
+          {moment === 'BACK3' ? (
+            <div className="scene">
+              <button
+                className=" option back-button"
+                onClick={() => setMoment('ESC3')}
+              >
+                Volver
+              </button>
+            </div>
+          ) : (
+            <></>
+          )}
+          {moment === 'BACK4' ? (
+            <div className="scene">
+              <button
+                className=" option back-button"
+                onClick={() => setMoment('ESC4')}
+              >
+                Volver
+              </button>
+            </div>
+          ) : (
+            <></>
+          )}
+        </div>
+        <button className="muted" onClick={mutedFun}>
+          {videoState.muted ? (
+            <i className="fas fa-volume-up"></i>
+          ) : (
+            <i className="fas fa-volume-mute"></i>
+          )}
         </button>
-      ) : (
-        <></>
-      )}
-      {videoState.slider ? <Slider setMoment={setMoment}></Slider> : <></>}
-      {videoState.question ? (
-        <>
-          <Question content={videoState.questionTitle} />
-          <Decision
-            classname="option"
-            question={videoState.questionId}
-            option={videoState.opinion1}
-            title={videoState.opinion1Title}
-            videoState={videoState}
-            setMoment={setMoment}
-            next={videoState.next1}
-          />
-          <Decision
-            classname="option"
-            question={videoState.questionId}
-            option={videoState.opinion2}
-            title={videoState.opinion2Title}
-            videoState={videoState}
-            setMoment={setMoment}
-            next={videoState.next2}
-            second={true}
-          />
-        </>
-      ) : (
-        <></>
-      )}
+      </div>
+
       {moment === 'FORM' ? (
         <UserForm
           videoState={videoState}
@@ -373,36 +416,6 @@ const Video = () => {
       )}
       {moment === 'OPINIONS' ? (
         <ListOpinion videoState={videoState} setVideoState={setVideoState} />
-      ) : (
-        <></>
-      )}
-      {moment === 'BACK2' ? (
-        <div className="scene">
-          <video autosrc={ESC4} className="bg-scene" alt="" />
-          <button className=" option left" onClick={() => setMoment('ESC2')}>
-            Volver
-          </button>
-        </div>
-      ) : (
-        <></>
-      )}
-      {moment === 'BACK3' ? (
-        <div className="scene">
-          <video autosrc={ESC4} className="bg-scene" alt="" />
-          <button className=" option left" onClick={() => setMoment('ESC3')}>
-            Volver
-          </button>
-        </div>
-      ) : (
-        <></>
-      )}
-      {moment === 'BACK4' ? (
-        <div className="scene">
-          <video autosrc={ESC4} className="bg-scene" alt="" />
-          <button className=" option left" onClick={() => setMoment('ESC4')}>
-            Volver
-          </button>
-        </div>
       ) : (
         <></>
       )}

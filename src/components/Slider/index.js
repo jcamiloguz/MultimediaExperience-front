@@ -6,7 +6,7 @@ function Slider({ setMoment }) {
     setMoment(momentChange)
   }
   return (
-    <div className="nav__content nes-container is-rounded">
+    <div className="nav__content nes-container is-rounded slider">
       <div className="activity">
         <div className="tooltip nes-balloon">Primera Actividad</div>
         <button onClick={() => sliderClick('ESC2')} className="nav__btn">
