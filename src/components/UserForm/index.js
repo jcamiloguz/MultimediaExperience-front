@@ -17,7 +17,7 @@ const UserForm = ({ videoState, setVideoState, setMoment }) => {
   const clickHandler = async (e) => {
     e.preventDefault()
     try {
-      const rawResponse = await fetch('http://localhost:9000/user', {
+      const rawResponse = await fetch('http://18.117.132.2:3000/user', {
         method: 'POST',
         headers: {
           Accept: 'application/json',
