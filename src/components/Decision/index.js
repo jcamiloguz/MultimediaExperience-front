@@ -17,7 +17,7 @@ const Decision = ({
       id_user: videoState.idUser,
     }
     try {
-      const rawResponse = await fetch('http://localhost:9000/answer', {
+      const rawResponse = await fetch('http://18.117.132.2:3000/answer', {
         method: 'POST',
         headers: {
           Accept: 'application/json',

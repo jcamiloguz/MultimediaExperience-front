@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import ReactStars from 'react-stars'
-
+import './index.scss'
+import { FacebookShareButton, TwitterShareButton } from 'react-share'
 export default function OpinionForm({ videoState, setMoment }) {
   const [opinion, setOpinion] = useState({
     content_opinion: '',
@@ -33,8 +34,8 @@ export default function OpinionForm({ videoState, setMoment }) {
     }
   }
   return (
-    <div>
-      <div className="form-container nes-container">
+    <div className="opinion-form">
+      <div className="form-container  nes-container">
         <h2>Danos tu opinion de la experiencia!!</h2>
         <div className="nes-field">
           <label htmlFor="name_field">Comentario: </label>
@@ -58,6 +59,15 @@ export default function OpinionForm({ videoState, setMoment }) {
           {' '}
           Enviar y continuar
         </button>
+        <h2>Comparte la experiencia!!</h2>
+        <div className="social-media">
+          <FacebookShareButton className="nes-btn" url={'http://google.com'}>
+            <i class="nes-icon facebook is-large"></i>
+          </FacebookShareButton>
+          <TwitterShareButton className="nes-btn" url={'http://google.com'}>
+            <i class="nes-icon twitter is-large"></i>
+          </TwitterShareButton>
+        </div>
       </div>
     </div>
   )

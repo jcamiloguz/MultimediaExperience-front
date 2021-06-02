@@ -1,7 +1,7 @@
 .dashboard {
   width: 100%;
   max-width: 1000px;
-  margin: 20px auto !important;
+  margin: 0 auto !important;
   align-items: center;
 }
 .dashboard__admin {
@@ -29,7 +29,7 @@
 }
 .bar {
   width: 100%;
-  margin: 20px !important;
+  margin: 15px !important;
 }
 .accordion__item {
   transition: height ease-in 400ms;

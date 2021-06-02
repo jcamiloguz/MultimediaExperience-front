@@ -347,6 +347,7 @@ const Video = () => {
           )}
           {currentTime > 22 && moment === 'INICIO' ? (
             <button
+              className="nes-btn"
               onClick={() => {
                 setMoment('FORM')
               }}
@@ -358,7 +359,7 @@ const Video = () => {
           )}
           {moment === 'BACK2' ? (
             <button
-              className=" option back-button"
+              className=" option back-button nes-btn"
               onClick={() => setMoment('ESC2')}
             >
               Volver
@@ -369,7 +370,7 @@ const Video = () => {
           {moment === 'BACK3' ? (
             <div className="scene">
               <button
-                className=" option back-button"
+                className=" option back-button nes-btn"
                 onClick={() => setMoment('ESC3')}
               >
                 Volver
@@ -381,7 +382,7 @@ const Video = () => {
           {moment === 'BACK4' ? (
             <div className="scene">
               <button
-                className=" option back-button"
+                className=" option back-button nes-btn"
                 onClick={() => setMoment('ESC4')}
               >
                 Volver
