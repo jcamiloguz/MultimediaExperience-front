@@ -1,4 +1,10 @@
 .bg-scene {
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+  // transform: translateX(25%);
+}
+.form-background {
   width: 100%;
   position: absolute;
   z-index: -1;
@@ -20,6 +26,7 @@
   transform: translateX(300px);
 }
 .question {
+  display: none;
   position: absolute;
   top: 300px;
   position: absolute;
@@ -41,11 +48,12 @@
   background-color: #fefefe;
   padding: 10px;
   margin: 10px;
-}.slider{
+}
+.slider {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   transform: translateY(15px);
-  margin-left:5rem;
-  margin-right:5rem;
+  margin-left: 5rem;
+  margin-right: 5rem;
 }

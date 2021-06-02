@@ -6,7 +6,7 @@ const Decision = ({
   question,
   next,
   videoState,
-  setVideoState,
+  setMoment,
   second = false,
 }) => {
   const clickHandler = async (e) => {
@@ -28,11 +28,10 @@ const Decision = ({
       console.log(JSON.stringify(answerData))
       const content = await rawResponse.json()
       console.log(content)
+      setMoment(next)
     } catch (err) {
       throw err
     }
-
-    setVideoState({ ...videoState, moment: next })
   }
 
   return (

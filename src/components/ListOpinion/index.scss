@@ -1,0 +1,18 @@
+.opinion {
+  margin: 25% 0 !important ;
+  text-align: center;
+}
+.opinion-list {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.list-opinion-title {
+  color: #f4f4f4;
+}
+.list-opinion-container {
+  text-align: center;
+  width: 100%;
+  height: 1000px;
+  overflow-y: scroll;
+}

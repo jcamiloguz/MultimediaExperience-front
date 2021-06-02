@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react'
+import ReactStars from 'react-stars'
+import './index.scss'
 
 export default function ListOpinion() {
   const [opinions, setOpinions] = useState([])
@@ -23,13 +25,21 @@ export default function ListOpinion() {
     }
   }
   return (
-    <div className="nes-container " className="list_opinion">
-      <h2>Lista de comentarios</h2>
+    <div className=" list-opinion-container ">
+      <h2 className="list-opinion-title">Otras opiniones!!</h2>
       {opinions.map((opinion) => (
-        <div key={opinion.id} className="opinion">
-          {' '}
-          <h2>{opinion.content_opinion}</h2>
-          <p>{opinion.score}</p>
+        <div className="message-list opinion-list ">
+          <div className="message-left">
+            <div key={opinion.id} className="nes-balloon">
+              {' '}
+              <h2>{opinion.content_opinion}</h2>
+              <ReactStars
+                size={50}
+                value={opinion.score}
+                edit={false}
+              ></ReactStars>
+            </div>
+          </div>
         </div>
       ))}
     </div>

@@ -6,11 +6,12 @@ import UserForm from '../UserForm'
 import OpinionForm from '../OpinionForm'
 import ListOpinion from '../ListOpinion'
 import Slider from '../Slider'
+import formBackground from '../../assets/fondo.png'
 
 const INICIO =
   'https://multimedia-experience.s3.us-east-2.amazonaws.com/drive-download-20210528T042417Z-001/INICIO.mp4'
 const ESC2 =
-  'https://multimedia-experience.s3.us-east-2.amazonaws.com/drive-download-20210528T042417Z-001/Escena+Dos.mp4'
+  'https://multimedia-experience.s3.us-east-2.amazonaws.com/drive-download-20210528T042417Z-001/escena+Dos+(Loop).mp4'
 const CORR2 =
   'https://multimedia-experience.s3.us-east-2.amazonaws.com/drive-download-20210528T042417Z-001/CORRECTO.mp4'
 const INCOR2 =
@@ -22,197 +23,14 @@ const CORR3 =
 const INCOR3 =
   'https://multimedia-experience.s3.us-east-2.amazonaws.com/drive-download-20210528T042417Z-001/Escena+Tres+(Incorrecto).mp4'
 const ESC4 =
-  'https://multimedia-experience.s3.us-east-2.amazonaws.com/drive-download-20210528T042417Z-001/Escena+Dos.mp4'
+  'https://multimedia-experience.s3.us-east-2.amazonaws.com/drive-download-20210528T042417Z-001/Escena+Cuatro+(Loop).mp4'
 const CORR4 =
   'https://multimedia-experience.s3.us-east-2.amazonaws.com/drive-download-20210528T042417Z-001/Escena+Cuatro+(Correcto).mp4'
 const INCOR4 =
   'https://multimedia-experience.s3.us-east-2.amazonaws.com/drive-download-20210528T042417Z-001/Escena+Cuatro+(Incorrecto).mp4'
 const FINAL =
   'https://multimedia-experience.s3.us-east-2.amazonaws.com/drive-download-20210528T042417Z-001/EscenaF(Loop).mp4'
-// const contentSwitch = (moment) => {
-//   switch (moment) {
-//     case 0:
-//       return <UserForm videoState={videoState} setVideoState={setVideoState} />
-//       break
-//     case 1:
-//       return (
-//         <div className="scene">
-//           <video src={INICIO} className="bg-scene" alt="" />
-//           <Question content="Si debes redactar un documento formal que fuente usarias?" />
-//           <Decision
-//             question={1}
-//             option={1}
-//             title={'Comic Sans'}
-//             correct={false}
-//             videoState={videoState}
-//             setVideoState={setVideoState}
-//           />
-//           <Decision
-//             classname="option"
-//             question={1}
-//             option={2}
-//             title={'Roboto'}
-//             correct={true}
-//             videoState={videoState}
-//             setVideoState={setVideoState}
-//             second={true}
-//           />
-//         </div>
-//       )
-//     case 2:
-//       return (
-//         <div className="scene">
-//           <video src={ESC3} className="bg-scene" alt="" />
-//           <Question content="Cual de las dos lineas imprime un  -HOLA MUNDO-?" />
-//           <Decision
-//             classname="option"
-//             question={2}
-//             option={3}
-//             title={'print("HOLA MUNDO")'}
-//             correct={true}
-//             videoState={videoState}
-//             setVideoState={setVideoState}
-//           />
-//           <Decision
-//             classname="option"
-//             question={2}
-//             option={4}
-//             title={'math.random("HOLA MUNDO")'}
-//             correct={false}
-//             videoState={videoState}
-//             setVideoState={setVideoState}
-//             second={true}
-//           />
-//         </div>
-//       )
-//       break
-//     case 3:
-//       return (
-//         <div className="scene">
-//           <video src={ESC4} className="bg-scene" alt="" />
-//           <Question content="Que debes hacer para encender el led y acabar con arduibot?" />
-//           <Decision
-//             classname="option"
-//             question={3}
-//             option={5}
-//             title={'Desconectar el cable negro'}
-//             correct={false}
-//             videoState={videoState}
-//             setVideoState={setVideoState}
-//           />
-//           <Decision
-//             classname="option"
-//             question={3}
-//             option={6}
-//             title={'Conectar elcable rojo'}
-//             correct={true}
-//             videoState={videoState}
-//             setVideoState={setVideoState}
-//             second={true}
-//           />
-//         </div>
-//       )
-//       break
-//     case 4:
-//       return (
-//         <div className="scene">
-//           <video src={ESC4} className="bg-scene" alt="" />
-//           <Question content="A cuantos metro puedes usar tu bluetooth para pedir una bomba que destruya al super pez?" />
-//           <Decision
-//             classname="option"
-//             question={4}
-//             option={7}
-//             title={'Maximo 5KM'}
-//             correct={false}
-//             videoState={videoState}
-//             setVideoState={setVideoState}
-//           />
-//           <Decision
-//             classname="option"
-//             question={4}
-//             option={8}
-//             title={'Maximo 5M'}
-//             correct={true}
-//             videoState={videoState}
-//             setVideoState={setVideoState}
-//             second={true}
-//           />
-//         </div>
-//       )
-//       break
-//     case 5:
-//       return (
-//         <div className="scene">
-//           <video src={ESC4} className="bg-scene" alt="" />
-//           <OpinionForm videoState={videoState} setVideoState={setVideoState} />
-//         </div>
-//       )
-//       break
-//     case 6:
-//       return (
-//         <div className="scene">
-//           <video src={ESC4} className="bg-scene" alt="" />
-//           <ListOpinion videoState={videoState} setVideoState={setVideoState} />
-//         </div>
-//       )
-//       break
-//     case 'incorrect1':
-//       return (
-//         <div className="scene">
-//           <video src={ESC4} className="bg-scene" alt="" />
-//           <button
-//             className=" option left"
-//             onClick={() => setVideoState({ ...videoState, moment: 1 })}
-//           >
-//             Back
-//           </button>
-//         </div>
-//       )
-//       break
-//     case 'incorrect2':
-//       return (
-//         <div className="scene">
-//           <video src={ESC4} className="bg-scene" alt="" />
-//           <button
-//             className=" option left"
-//             onClick={() => setVideoState({ ...videoState, moment: 2 })}
-//           >
-//             Back
-//           </button>
-//         </div>
-//       )
-//       break
-//     case 'incorrect3':
-//       return (
-//         <div className="scene">
-//           <vide src={ESC4} className="bg-scene" alt="" />
-//           <button
-//             className=" option left"
-//             onClick={() => setVideoState({ ...videoState, moment: 3 })}
-//           >
-//             Back
-//           </button>
-//         </div>
-//       )
-//       break
-//     case 'incorrect4':
-//       return (
-//         <div className="scene">
-//           <video autosrc={ESC4} className="bg-scene" alt="" />
-//           <button
-//             className=" option left"
-//             onClick={() => setVideoState({ ...videoState, moment: 4 })}
-//           >
-//             Back
-//           </button>
-//         </div>
-//       )
-//       break
-//     default:
-//       return <></>
-//       break
-//   }
-// }
+
 const Video = () => {
   const [videoState, setVideoState] = useState({
     idUser: null,
@@ -235,15 +53,18 @@ const Video = () => {
   const states = {
     INICIO: () => {
       console.log('inicio')
+      setCurrentTime(0)
     },
     FORM: () => {
       console.log('FORM')
       setCurrentTime(0)
       setVideoState({ ...videoState, src: '' })
+      setCurrentTime(0)
     },
     ESC2: () => {
       console.log('ESC2')
-      setVideoState({ ...videoState, src: ESC2 })
+      setVideoState({ ...videoState, slider: true, src: ESC2 })
+      setCurrentTime(0)
     },
     QUE2: () => {
       setVideoState({
@@ -258,17 +79,50 @@ const Video = () => {
         opinion2: 2,
         opinion2Title: 'Roboto',
         next2: 'COR2',
+        slider: false,
       })
+      setCurrentTime(0)
     },
     INC2: () => {
-      setVideoState({ ...videoState, src: INCOR2 })
+      setVideoState({
+        ...videoState,
+        src: INCOR2,
+        question: false,
+        questionTitle: '',
+        questionId: 0,
+        opinion1: 0,
+        next1: '',
+        opinion1Title: '',
+        opinion2: 0,
+        opinion2Title: '',
+        next2: '',
+        slider: false,
+      })
+      setCurrentTime(0)
     },
-    BACK2: () => {},
+    BACK2: () => {
+      setCurrentTime(0)
+    },
     COR2: () => {
-      setVideoState({ ...videoState, src: CORR2 })
+      setVideoState({
+        ...videoState,
+        src: CORR2,
+        question: false,
+        questionTitle: '',
+        questionId: 0,
+        opinion1: 0,
+        next1: '',
+        opinion1Title: '',
+        opinion2: 0,
+        opinion2Title: '',
+        next2: '',
+        slider: false,
+      })
+      setCurrentTime(0)
     },
     ESC3: () => {
-      setVideoState({ ...videoState, src: ESC3 })
+      setVideoState({ ...videoState, src: ESC3, slider: true })
+      setCurrentTime(0)
     },
     QUE3: () => {
       setVideoState({
@@ -282,17 +136,62 @@ const Video = () => {
         opinion2: 4,
         opinion2Title: 'math.random("HOLA MUNDO")',
         next2: 'INC3',
+        slider: false,
       })
     },
     INC3: () => {
-      setVideoState({ ...videoState, src: INCOR3 })
+      setVideoState({
+        ...videoState,
+        src: INCOR3,
+        question: false,
+        questionTitle: '',
+        questionId: 0,
+        opinion1: 0,
+        next1: '',
+        opinion1Title: '',
+        opinion2: 0,
+        opinion2Title: '',
+        next2: '',
+        slider: false,
+      })
+      setCurrentTime(0)
     },
-    BACK3: () => {},
+    BACK3: () => {
+      setCurrentTime(0)
+    },
     COR3: () => {
-      setVideoState({ ...videoState, src: CORR3 })
+      setVideoState({
+        ...videoState,
+        src: CORR3,
+        question: false,
+        questionTitle: '',
+        questionId: 0,
+        opinion1: 0,
+        next1: '',
+        opinion1Title: '',
+        opinion2: 0,
+        opinion2Title: '',
+        next2: '',
+        slider: false,
+      })
+      setCurrentTime(0)
     },
     ESC4: () => {
-      setVideoState({ ...videoState, src: ESC4 })
+      setVideoState({
+        ...videoState,
+        src: ESC4,
+        question: false,
+        questionTitle: '',
+        questionId: 0,
+        opinion1: 0,
+        next1: '',
+        opinion1Title: '',
+        opinion2: 0,
+        opinion2Title: '',
+        next2: '',
+        slider: true,
+      })
+      setCurrentTime(0)
     },
     QUE4: () => {
       setVideoState({
@@ -302,26 +201,56 @@ const Video = () => {
           'A cuantos metro puedes usar tu bluetooth para pedir una bomba que destruya al super pez?',
         questionId: 3,
         opinion1: 5,
-        next1: 'INC3',
+        next1: 'INC4',
         opinion1Title: 'Maximo 5KM',
         opinion2: 6,
         opinion2Title: 'Maximo 5M',
-        next2: 'COR3',
+        next2: 'COR4',
+        slider: false,
       })
     },
     INC4: () => {
-      setVideoState({ ...videoState, src: INCOR4 })
+      setVideoState({
+        ...videoState,
+        src: INCOR4,
+        question: false,
+        questionTitle: '',
+        questionId: 0,
+        opinion1: 0,
+        next1: '',
+        opinion1Title: '',
+        opinion2: 0,
+        opinion2Title: '',
+        next2: '',
+        slider: false,
+      })
+      setCurrentTime(0)
     },
     COR4: () => {
-      setVideoState({ ...videoState, src: CORR4 })
+      setVideoState({
+        ...videoState,
+        src: CORR4,
+        question: false,
+        questionTitle: '',
+        questionId: 0,
+        opinion1: 0,
+        next1: '',
+        opinion1Title: '',
+        opinion2: 0,
+        opinion2Title: '',
+        next2: '',
+        slider: false,
+      })
+      setCurrentTime(0)
     },
-    BACK4: () => {},
+    BACK4: () => {
+      setCurrentTime(0)
+    },
     FINAL: () => {
       setVideoState({ ...videoState, src: FINAL })
+      setCurrentTime(0)
     },
-    LAST_FORM: () => {
-      setVideoState({ ...videoState, src: '' })
-    },
+    LAST_FORM: () => {},
     OPINIONS: () => {},
   }
   useEffect(() => {
@@ -335,13 +264,51 @@ const Video = () => {
     if (currentTime > 38 && moment === 'INICIO') {
       element.target.currentTime = 26
     }
-    if (currentTime > 34 && moment === 'ESC2') {
+    if (currentTime > 42 && moment === 'ESC2') {
       setMoment('QUE2')
+    }
+    if (currentTime > 6 && moment === 'INC2') {
+      setMoment('BACK2')
+    }
+    if (currentTime > 5 && moment === 'COR2') {
+      setMoment('ESC3')
+    }
+    if (currentTime > 40 && moment === 'ESC3') {
+      setMoment('QUE3')
+    }
+    if (currentTime > 5 && moment === 'COR3') {
+      setMoment('ESC4')
+    }
+    if (currentTime > 6 && moment === 'INC3') {
+      setMoment('BACK3')
+    }
+    if (currentTime > 41 && moment === 'ESC4') {
+      setMoment('QUE4')
+    }
+    if (currentTime > 6 && moment === 'COR4') {
+      setMoment('FINAL')
+    }
+    if (currentTime > 6 && moment === 'INC4') {
+      setMoment('BACK4')
+    }
+    if (currentTime > 46 && moment === 'FINAL') {
+      setMoment('LAST_FORM')
     }
   }
   return (
     <div className="video-container">
       <div className="background">
+        {moment === 'FORM' ? (
+          <img
+            src={formBackground}
+            className="form-background"
+            alt=""
+            srcset=""
+          />
+        ) : (
+          <></>
+        )}
+
         <video
           autoPlay
           muted={videoState.muted}
@@ -350,9 +317,9 @@ const Video = () => {
           onTimeUpdate={getCurrentTime}
         ></video>
       </div>
-      <h1>{currentTime}</h1>
+      {/* <h1>{currentTime}</h1> */}
       <button onClick={mutedFun}>Mute</button>
-      {moment === 'INICIO' ? (
+      {currentTime > 22 && moment === 'INICIO' ? (
         <button
           onClick={() => {
             setMoment('FORM')
@@ -363,11 +330,7 @@ const Video = () => {
       ) : (
         <></>
       )}
-      {videoState.slider ? (
-        <Slider videoState={videoState} setVideoState={setVideoState}></Slider>
-      ) : (
-        <></>
-      )}
+      {videoState.slider ? <Slider setMoment={setMoment}></Slider> : <></>}
       {videoState.question ? (
         <>
           <Question content={videoState.questionTitle} />
@@ -377,16 +340,17 @@ const Video = () => {
             option={videoState.opinion1}
             title={videoState.opinion1Title}
             videoState={videoState}
-            setVideoState={setVideoState}
-            //  next={}
+            setMoment={setMoment}
+            next={videoState.next1}
           />
           <Decision
             classname="option"
             question={videoState.questionId}
-            option={videoState.opinion1}
-            title={videoState.opinion1Title}
+            option={videoState.opinion2}
+            title={videoState.opinion2Title}
             videoState={videoState}
-            setVideoState={setVideoState}
+            setMoment={setMoment}
+            next={videoState.next2}
             second={true}
           />
         </>
@@ -403,12 +367,42 @@ const Video = () => {
         <></>
       )}
       {moment === 'LAST_FORM' ? (
-        <OpinionForm videoState={videoState} setVideoState={setVideoState} />
+        <OpinionForm videoState={videoState} setMoment={setMoment} />
       ) : (
         <></>
       )}
-      {moment === 'OPINION' ? (
+      {moment === 'OPINIONS' ? (
         <ListOpinion videoState={videoState} setVideoState={setVideoState} />
+      ) : (
+        <></>
+      )}
+      {moment === 'BACK2' ? (
+        <div className="scene">
+          <video autosrc={ESC4} className="bg-scene" alt="" />
+          <button className=" option left" onClick={() => setMoment('ESC2')}>
+            Volver
+          </button>
+        </div>
+      ) : (
+        <></>
+      )}
+      {moment === 'BACK3' ? (
+        <div className="scene">
+          <video autosrc={ESC4} className="bg-scene" alt="" />
+          <button className=" option left" onClick={() => setMoment('ESC3')}>
+            Volver
+          </button>
+        </div>
+      ) : (
+        <></>
+      )}
+      {moment === 'BACK4' ? (
+        <div className="scene">
+          <video autosrc={ESC4} className="bg-scene" alt="" />
+          <button className=" option left" onClick={() => setMoment('ESC4')}>
+            Volver
+          </button>
+        </div>
       ) : (
         <></>
       )}

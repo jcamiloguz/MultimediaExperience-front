@@ -1,12 +1,17 @@
 import React, { useState } from 'react'
+import ReactStars from 'react-stars'
 
-export default function OpinionForm({ videoState, setVideoState }) {
+export default function OpinionForm({ videoState, setMoment }) {
   const [opinion, setOpinion] = useState({
     content_opinion: '',
     score: 0,
   })
   const opinionHandler = (e) => {
     setOpinion({ ...opinion, [e.target.name]: e.target.value })
+    console.log(opinion)
+  }
+  const starHandler = (starRate) => {
+    setOpinion({ ...opinion, score: Math.round(starRate) })
   }
   const clickHandler = async (e) => {
     e.preventDefault()
@@ -22,10 +27,7 @@ export default function OpinionForm({ videoState, setVideoState }) {
       })
       const content = await rawResponse.json()
       console.log(content)
-      setVideoState({
-        ...videoState,
-        moment: videoState.moment + 1,
-      })
+      setMoment('OPINIONS')
     } catch (err) {
       throw err
     }
@@ -44,16 +46,14 @@ export default function OpinionForm({ videoState, setVideoState }) {
             className="nes-input"
           />
         </div>
+        <br />
         <p>Tambien puedes calificarnos</p>
-        <input
-          onChange={opinionHandler}
+        <ReactStars
+          onChange={starHandler}
           value={opinion.score}
-          type="text"
-          name="score"
-          className="nes-input"
-          min="0"
-          max="5"
-        />
+          size={70}
+          count={5}
+        ></ReactStars>
         <button className=" nes-btn is-error" onClick={clickHandler}>
           {' '}
           Enviar y continuar
