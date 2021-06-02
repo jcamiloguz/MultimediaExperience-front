@@ -10,30 +10,39 @@ function Dashboard() {
 
   const getQuestions = async () => {
     try {
-      const response = await fetch(`http://18.117.132.2:3000/question`, {
-        method: 'GET',
-        mode: 'cors',
-        headers: {
-          'access-control-allow-origin': '*',
-          'Content-Type': 'application/json',
-        },
-      })
-      const response2 = await fetch(`http://18.117.132.2:3000/user`, {
-        method: 'GET',
-        mode: 'cors',
-        headers: {
-          'access-control-allow-origin': '*',
-          'Content-Type': 'application/json',
-        },
-      })
-      const response3 = await fetch(`http://18.117.132.2:3000/age`, {
-        method: 'GET',
-        mode: 'cors',
-        headers: {
-          'access-control-allow-origin': '*',
-          'Content-Type': 'application/json',
-        },
-      })
+      const response = await fetch(
+        `https://multimedia-api.herokuapp.com/question`,
+        {
+          method: 'GET',
+          mode: 'cors',
+          headers: {
+            'access-control-allow-origin': '*',
+            'Content-Type': 'application/json',
+          },
+        }
+      )
+      const response2 = await fetch(
+        `https://multimedia-api.herokuapp.com/user`,
+        {
+          method: 'GET',
+          mode: 'cors',
+          headers: {
+            'access-control-allow-origin': '*',
+            'Content-Type': 'application/json',
+          },
+        }
+      )
+      const response3 = await fetch(
+        `https://multimedia-api.herokuapp.com/age`,
+        {
+          method: 'GET',
+          mode: 'cors',
+          headers: {
+            'access-control-allow-origin': '*',
+            'Content-Type': 'application/json',
+          },
+        }
+      )
       const res = await response.json()
       const res2 = await response2.json()
       const res3 = await response3.json()

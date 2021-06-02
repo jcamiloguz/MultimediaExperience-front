@@ -18,14 +18,17 @@ export default function OpinionForm({ videoState, setMoment }) {
     e.preventDefault()
     const data = { ...opinion, id_user: videoState.idUser }
     try {
-      const rawResponse = await fetch('http://localhost:9000/opinion', {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      })
+      const rawResponse = await fetch(
+        'https://multimedia-api.herokuapp.com/opinion',
+        {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        }
+      )
       const content = await rawResponse.json()
       console.log(content)
       setMoment('OPINIONS')

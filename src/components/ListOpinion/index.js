@@ -9,14 +9,17 @@ export default function ListOpinion() {
   }, [])
   const getInfo = async () => {
     try {
-      const response = await fetch(`http://18.117.132.2:3000/opinion`, {
-        method: 'GET',
-        mode: 'cors',
-        headers: {
-          'access-control-allow-origin': '*',
-          'Content-Type': 'application/json',
-        },
-      })
+      const response = await fetch(
+        `https://multimedia-api.herokuapp.com/opinion`,
+        {
+          method: 'GET',
+          mode: 'cors',
+          headers: {
+            'access-control-allow-origin': '*',
+            'Content-Type': 'application/json',
+          },
+        }
+      )
       const data = await response.json()
       setOpinions(data)
       console.log(data)

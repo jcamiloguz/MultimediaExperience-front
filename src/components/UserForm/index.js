@@ -17,14 +17,17 @@ const UserForm = ({ videoState, setVideoState, setMoment }) => {
   const clickHandler = async (e) => {
     e.preventDefault()
     try {
-      const rawResponse = await fetch('http://18.117.132.2:3000/user', {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(state),
-      })
+      const rawResponse = await fetch(
+        'https://multimedia-api.herokuapp.com/user',
+        {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(state),
+        }
+      )
       const content = await rawResponse.json()
       console.log(content)
       setVideoState({

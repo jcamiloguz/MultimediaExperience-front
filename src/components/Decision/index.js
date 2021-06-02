@@ -17,14 +17,17 @@ const Decision = ({
       id_user: videoState.idUser,
     }
     try {
-      const rawResponse = await fetch('http://18.117.132.2:3000/answer', {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(answerData),
-      })
+      const rawResponse = await fetch(
+        'https://multimedia-api.herokuapp.com/answer',
+        {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(answerData),
+        }
+      )
       console.log(JSON.stringify(answerData))
       const content = await rawResponse.json()
       console.log(content)
