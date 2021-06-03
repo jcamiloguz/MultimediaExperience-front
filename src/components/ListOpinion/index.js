@@ -36,11 +36,13 @@ export default function ListOpinion() {
             <div key={opinion.id} className="nes-balloon">
               {' '}
               <h2>{opinion.content_opinion}</h2>
-              <ReactStars
-                size={50}
-                value={opinion.score}
-                edit={false}
-              ></ReactStars>
+              <div className="opinions-starts-small">
+                <ReactStars
+                  size={50}
+                  value={opinion.score}
+                  edit={false}
+                ></ReactStars>
+              </div>
             </div>
           </div>
         </div>

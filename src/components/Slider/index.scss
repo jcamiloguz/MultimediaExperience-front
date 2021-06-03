@@ -1,20 +1,20 @@
 .nav__content {
   display: flex;
   justify-content: center;
-  width: 490px;
-  height: 80px;
+  width: 100%;
+  max-width: 300px;
+  height: 60px;
   box-shadow: 3px 7px 13px rgb(2, 10, 14), -3px -6px 25px rgb(2, 10, 14);
   background: rgba(155, 155, 155, 0.521);
-  z-index: 2;
 }
 .activity {
-  margin: 0 20px;
+  margin: 0 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-  position: relative;
-  z-index: 2;
+  // flex-direction: column;
+  // position: relative;
+  // z-index: 2;
 }
 .tooltip {
   font-size: 8px;
@@ -40,7 +40,7 @@
   }
 }
 .nav__btn {
-  padding: 15px;
+  padding: 7px;
   margin: 0 10px;
   border: none;
   border-radius: 100%;
@@ -50,7 +50,7 @@
   }
 }
 .nav__circle {
-  font-size: 30px;
+  font-size: 20px;
   color: #e76e55;
   transition: all 0.2s ease-in-out;
   &:hover {
@@ -61,4 +61,9 @@
   top: -85px;
   opacity: 1;
   pointer-events: auto;
+}
+@media only screen and( max-width:500px) {
+  .nav__content {
+    max-width: 190px;
+  }
 }

@@ -112,14 +112,6 @@ function Dashboard() {
               data1={data.questions ? data.questions.question3.option1 : 1}
               data2={data.questions ? data.questions.question3.option2 : 1}
             />
-            <Barchart
-              activity="Actividad 4"
-              option1="negro"
-              option2="rojo"
-              description="Si quisieras encender este led (imagen del circuito) ¿qué cable conectarías? "
-              data1={data.questions ? data.questions.question4.option1 : 1}
-              data2={data.questions ? data.questions.question4.option2 : 1}
-            />
           </div>
           <h2>Edades</h2>
           <Bar

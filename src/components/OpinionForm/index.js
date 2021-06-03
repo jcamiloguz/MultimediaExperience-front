@@ -52,12 +52,14 @@ export default function OpinionForm({ videoState, setMoment }) {
         </div>
         <br />
         <p>Tambien puedes calificarnos</p>
-        <ReactStars
-          onChange={starHandler}
-          value={opinion.score}
-          size={70}
-          count={5}
-        ></ReactStars>
+        <div className="opinions-starts">
+          <ReactStars
+            onChange={starHandler}
+            value={opinion.score}
+            size={70}
+            count={5}
+          ></ReactStars>
+        </div>
         <button className=" nes-btn is-error" onClick={clickHandler}>
           {' '}
           Enviar y continuar
